@@ -1,5 +1,11 @@
 package solver;
 
+/**
+ * The Board class creates and object for a Sudoku puzzle. 
+ * The board represents an n x n grid of Square values.
+ * 
+ * @author Jacob R. Pratt the III prince of binary addition!	*/
+
 public class Board {
 	/**
 	 * The two dimensional array of square values
@@ -40,8 +46,31 @@ public class Board {
 	 * @return board
 	 * 		Returns the given board		*/
 	public Square[][] getBoard(){
-		return board;
+		return this.board;
 	}
 	
+	/**
+	 * Method returns the Square objects of 
+	 * any specified row.
+	 * 
+	 * @param row
+	 * 		Row that is being returned
+	 * @return
+	 * 		Integer array of row objects.
+	 */
+	public Square[] getRow(int row){
+		// TODO 
+		return null;
+	}
+	
+	public Square[] getColumn(int col){
+		// TODO 
+		return null;
+	}
+	
+	public Square[][] getBlock(int row, int col){
+		// TODO
+		return null;
+	}
 	
 }
