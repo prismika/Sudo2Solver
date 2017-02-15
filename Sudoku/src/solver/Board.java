@@ -50,6 +50,21 @@ public class Board {
 	}
 	
 	/**
+	 * Returns the square object
+	 * at the specific row and column 
+	 * specified by the method input
+	 * @param row
+	 * 		int of specified row
+	 * @param col
+	 * 		int of specified column
+	 * @return
+	 * 		Square object
+	 */
+	public Square getSquare(int row, int col){
+		return board[row][col];
+	}
+	
+	/**
 	 * Method returns the Square objects of 
 	 * any specified row.
 	 * 
@@ -72,5 +87,7 @@ public class Board {
 		// TODO
 		return null;
 	}
+	
+	// 
 	
 }
