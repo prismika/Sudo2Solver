@@ -9,13 +9,13 @@ public class Square {
 		poss.set(0,boardSize*boardSize-1);
 	}
 	Square(Square original){
-		BitSet newPoss = new BitSet(poss.cardinality());
+		BitSet newPoss = new BitSet(poss.size());
 		for(int i = 0; i < poss.size(); i++){
 			newPoss.set(i,poss.get(i));
 		}
 		this.poss = newPoss;
 	}
-	public void removePossibility(int newVal){
+	public void removePossibility(int newVal) throws SquareContradictionException{
 		poss.clear(newVal-1);
 		if(poss.cardinality()==0){
 			throw new SquareContradictionException("Square contradicted upon removal of: " + newVal);
@@ -39,9 +39,7 @@ public class Square {
 	public int getValue(){
 		if(hasValue()){
 			for(int i = 0; i < poss.size(); i++){
-				if(poss.get(i)){
-					return i+1;
-				}
+				if(poss.get(i))	return i+1;
 			}
 		}
 		return 0;
