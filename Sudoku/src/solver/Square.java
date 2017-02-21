@@ -47,6 +47,10 @@ public class Square {
 		}
 		return 0;
 	}
+	public void setValue(int val){
+		poss.clear();
+		poss.set(val-1);
+	}
 	public Square clone(){
 		return new Square(this);
 	}

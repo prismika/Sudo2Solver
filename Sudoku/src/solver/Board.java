@@ -22,6 +22,7 @@ public class Board {
 	}
 	
 	public Square getSquare(int row, int col){return square[row][col];}
+	public void setSquare(int row, int col, int val){square[row][col].setValue(val);}
 	public int getSize(){return size;}
 	public int getHeight(){return size*size;}
 	

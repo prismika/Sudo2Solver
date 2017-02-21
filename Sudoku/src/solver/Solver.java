@@ -31,7 +31,7 @@ public class Solver {
 		if(isSolved(b)){
 			return b;
 		}
-		//TODO InsertionSort would probably be faster than bucketSort
+		//TODO InsertionSort would probably be faster than bucketSort but my solution is so elegant tho
 		//Sort squares into a new queue by possibility number
 		int[] bucket = new int[b.getHeight()+1];
 		for(int[] coords : q){
@@ -59,20 +59,24 @@ public class Solver {
 			int[] check = queue[i].clone();
 			LinkedList<int[]> attempt = new LinkedList<>();
 			attempt.add(check);
-			Board clone = new Board(b.getSize(), b);
-			try{
-				deduce(clone, attempt);
-			}catch(SquareContradictionException e){
-				return null;
-			}
-			return recurse(clone);
 			
+			for(int newVal : b.getSquare(check[0], check[1]).getPossibilities()){
+				Board clone = new Board(b.getSize(), b);
+				clone.setSquare(check[0], check[1], newVal);
+				try{
+					deduce(clone, attempt);
+				}catch(SquareContradictionException e){
+					return null;
+				}
+				Board recursedBoard = recurse(clone, queue);
+				if(recursedBoard != null){
+					return recursedBoard;
+				}
+			}
 			i++;
 		}
 		
-		
-		
-		return null;
+		throw new SquareContradictionException("Recurse found no solutions and no contradictions");
 	}
 	
 	private boolean isSolved(Board b){
