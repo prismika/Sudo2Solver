@@ -30,6 +30,9 @@ public class Square {
 		}
 		return reply;
 	}
+	public int getPossibilityNumber(){
+		return poss.cardinality();
+	}
 	public boolean checkPossibility(int check){
 		return poss.get(check-1);
 	}
